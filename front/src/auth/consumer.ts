@@ -1,0 +1,1 @@
+export type Consumer<T> = (data: T) => void
