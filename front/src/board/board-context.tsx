@@ -9,7 +9,7 @@ export type BoardContextType = {
   moveCardRight: (card: Card) => Promise<string | null>
   moveCardLeft: (card: Card) => Promise<string | null>
   deleteCard: (card: Card) => Promise<void>
-  newCard: (card: NewCard) => Promise<void>
+  newCard: (card: NewCard) => Promise<Card>
   updateCard: (card: Card) => Promise<void>
 }
 

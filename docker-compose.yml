@@ -6,6 +6,8 @@ services:
     depends_on:
       - database
     command: npm run start:dev
+    env_file:
+      - .env
     environment:
       DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@database:${DB_PORT}/${DB_NAME}
     ports:
@@ -28,8 +30,8 @@ services:
     depends_on:
       - back
     command: npm run dev -- --host
-    environment:
-      VITE_API_URL: http://localhost:3000
+    env_file:
+      - .env
     ports:
       - 5173:5173
     working_dir: /app

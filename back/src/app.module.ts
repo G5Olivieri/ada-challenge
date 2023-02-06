@@ -12,6 +12,7 @@ import { CardsModule } from './cards/cards.module';
     AuthModule,
     UsersModule,
     ConfigModule.forRoot({
+      ignoreEnvVars: false,
       validate,
     }),
     CardsModule,

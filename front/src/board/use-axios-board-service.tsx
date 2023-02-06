@@ -26,8 +26,14 @@ export const useAxiosBoardService = (): BoardContextType => {
     ...rest,
     setColumns,
     newCard: async (nCard: NewCard) => {
-      newCard(nCard)
-      await axios.post(`${import.meta.env.VITE_API_URL}/cards`, { ...nCard, lista: 'To Do' })
+      const card = await newCard(nCard)
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/cards`, { ...nCard, lista: 'To Do' })
+      setColumns((columns) => {
+        const column = columns.findIndex(c => card.lista === c.name)
+        if (column < 0) return
+        columns[column].cards = columns[column].cards.map(c => c.id === card.id ? response.data : c)
+        return [...columns]
+      })
     },
     updateCard: async (updated: Card) => {
       updateCard(updated)

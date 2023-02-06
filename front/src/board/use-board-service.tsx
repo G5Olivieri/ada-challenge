@@ -50,6 +50,7 @@ export const useBoardService = (): BoardContextType => {
       }
       columns[todo].cards.push(card)
       setColumns([...columns])
+      return card
     },
     updateCard: async (updated: Card) => {
       const todo = columns.findIndex(c => c.name === updated.lista)

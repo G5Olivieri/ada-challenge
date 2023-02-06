@@ -63,3 +63,4 @@ $ make clean up logs
 - Faltou internacionalização;
 - Também faltou temas no styled-components então só ficou light mesmo, mas gostaria de ter colocado um dark theme;
 - Eu não consegui colocar o Drag N Drop;
+- O login não está estilizado porque eu fiz ele por último e esqueci
